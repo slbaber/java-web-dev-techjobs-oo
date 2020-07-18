@@ -1,4 +1,5 @@
 package org.launchcode.techjobs_oo;
+import java.util.Objects;
 
 public class Job {
 
@@ -29,13 +30,66 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
-
     @Override
     public String toString() {
-        return value;
+        String nameString;
+        String employerString;
+        String locationString;
+        String positionTypeString;
+        String coreCompetencyString;
+        int count = 0;
+
+        if (name == null || name == ""){
+            nameString = "Data not available";
+            count ++;
+        }else{
+            nameString = name;
+        }
+
+        if (employer == null || employer.toString() == ""){
+            employerString = "Data not available";
+            count ++;
+        }else{
+            employerString = employer.toString();
+        }
+
+        if (location == null || location.toString() == ""){
+            locationString = "Data not available";
+            count ++;
+        }else{
+            locationString = location.toString();
+        }
+
+        if (positionType == null || positionType.toString() == ""){
+            positionTypeString = "Data not available";
+            count ++;
+        }else{
+            positionTypeString = positionType.toString();
+        }
+
+        if (coreCompetency == null || coreCompetency.toString() == ""){
+            coreCompetencyString = "Data not available";
+            count ++;
+        }else{
+            coreCompetencyString = coreCompetency.toString();
+        }
+
+        if (count != 5) {
+            return "\n" +
+                    "ID: " + id + "\n" +
+                    "Name: " + nameString + "\n" +
+                    "Employer: " + employerString + "\n" +
+                    "Location: " + locationString + "\n" +
+                    "Position Type: " + positionTypeString + "\n" +
+                    "Core Competency: " + coreCompetencyString + "\n";
+        }
+        else{
+            return "OOPS!  This job does not seem to exist.";
+        }
     }
+
+    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    //  match.
 
     @Override
     public boolean equals(Object o) {
